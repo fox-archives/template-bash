@@ -1,0 +1,20 @@
+[package]
+name = 'fox-track'
+slug = 'fox_track'
+version = '0.1.0'
+authors = ['']
+description = 'A template to get started writing Bash applications and projects'
+
+[run]
+dependencies = ['https://github.com/hyperupcall/bats-common-utils.git@v3.0.0']
+sourceDirs = ['pkg/lib/public', 'pkg/lib']
+builtinDirs = []
+binDirs = ['pkg/bin']
+completionDirs = ['completions']
+manDirs = []
+
+[run.shellEnvironment]
+
+[run.setOptions]
+
+[run.shoptOptions]

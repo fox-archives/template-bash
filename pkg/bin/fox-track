@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+# This is how the entrypoint for an executable should look
+
+# 1. The `eval "$(basalt-package-init)"` loads the 'basalt.package-init'
+#    function into current execution context
+# 2. The `basalt.package-init` sources all relevant files of the current
+#    project. This includes files for the current project (they are listed
+#     in `sourceDirs` in `basalt.toml`) and files from package dependencies
+eval "$(basalt-package-init)"; basalt.package-init
+basalt.package-load
+
+# This souces the corresponding file in `pkg/lib/cmd`. Note that everything is wrapped
+# in a function called `fox-track.main` (instead of being at the top level) for two reasons
+# 1. It allows for using `local` within the code
+# 2. It makes testing _significantly_ easier (see the testing files for more details)
+# TODO: Does not take into account paths when shipping as a distribution package
+source "$BASALT_PACKAGE_PATH/pkg/lib/cmd/fox-track.sh"
+fox-track.main "$@"
