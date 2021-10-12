@@ -15,5 +15,5 @@ basalt.package-load
 # 1. It allows for using `local` within the code
 # 2. It makes testing _significantly_ easier (see the testing files for more details)
 # TODO: Does not take into account paths when shipping as a distribution package
-source "$BASALT_PACKAGE_PATH/pkg/lib/cmd/fox-track.sh"
+source "$BASALT_PACKAGE_DIR/pkg/lib/cmd/fox-track.sh"
 fox-track.main "$@"
